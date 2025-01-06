@@ -46,20 +46,20 @@ Steps:
 
 ## Classes Overview
 
-### Room
+### * Room
 Represents a hotel room with attributes:
 - room number
 - category
 - price
 - availability status
 
-### Reservation
+### * Reservation
 Represents a reservation with attributes:
 - reservation ID
 - guest name
 - associated room
 
-### HotelReservationSystem
+### * HotelReservationSystem
 Contains the main logic of the program, including:
 - Initialization of rooms
 - Search, reservation, and viewing functionality
