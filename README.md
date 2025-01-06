@@ -34,15 +34,10 @@ This program simulates basic functionality for managing hotel room bookings and 
 
 ## How to Run
 
-Prerequisites:
-- Java Development Kit (JDK) 8 or higher
-- A code editor or IDE (e.g., IntelliJ IDEA, Eclipse, or Visual Studio Code) or terminal to run the program
-
 Steps:
 1. Download the source code file: HotelReservationSystem.java
-2. Compile the program using the command:
-3. Run the program using the command:
-4. Follow the menu prompts in the console to interact with the application
+2. Compile the program using the command: javac HotelReservationSystem.java
+3. Run the program using the command: java HotelReservationSystem
 
 ## Classes Overview
 
