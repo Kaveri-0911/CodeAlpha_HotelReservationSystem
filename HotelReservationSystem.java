@@ -1,84 +1,100 @@
 import java.util.*;
-
-class Room {
+class Room 
+{
     private int roomNumber;
     private String category;
     private double price;
     private boolean isAvailable;
 
-    public Room(int roomNumber, String category, double price) {
+    public Room(int roomNumber, String category, double price)
+    {
         this.roomNumber = roomNumber;
         this.category = category;
         this.price = price;
         this.isAvailable = true;
     }
 
-    public int getRoomNumber() {
+    public int getRoomNumber() 
+    {
         return roomNumber;
     }
 
-    public String getCategory() {
+    public String getCategory() 
+    {
         return category;
     }
 
-    public double getPrice() {
+    public double getPrice() 
+    {
         return price;
     }
 
-    public boolean isAvailable() {
+    public boolean isAvailable() 
+    {
         return isAvailable;
     }
 
-    public void setAvailable(boolean available) {
+    public void setAvailable(boolean available) 
+    {
         isAvailable = available;
     }
 
     @Override
-    public String toString() {
+    public String toString() 
+    {
         return "Room " + roomNumber + " (" + category + ") - $" + price + (isAvailable ? " [Available]" : " [Booked]");
     }
 }
 
-class Reservation {
+class Reservation 
+{
     private static int idCounter = 1;
     private int reservationId;
     private String guestName;
     private Room room;
 
-    public Reservation(String guestName, Room room) {
+    public Reservation(String guestName, Room room)
+    {
         this.reservationId = idCounter++;
         this.guestName = guestName;
         this.room = room;
         this.room.setAvailable(false);
     }
 
-    public int getReservationId() {
+    public int getReservationId() 
+    {
         return reservationId;
     }
 
-    public String getGuestName() {
+    public String getGuestName()
+    {
         return guestName;
     }
 
-    public Room getRoom() {
+    public Room getRoom() 
+    {
         return room;
     }
 
-    @Override
-    public String toString() {
+    
+    public String toString() 
+    {
         return "Reservation ID: " + reservationId + "\nGuest Name: " + guestName + "\nRoom Details: " + room;
     }
 }
 
-public class HotelReservationSystem {
+public class HotelReservationSystem 
+{
     private List<Room> rooms = new ArrayList<>();
     private List<Reservation> reservations = new ArrayList<>();
 
-    public HotelReservationSystem() {
+    public HotelReservationSystem() 
+    {
         initializeRooms();
     }
 
-    private void initializeRooms() {
+    private void initializeRooms() 
+    {
         rooms.add(new Room(101, "Single", 100.0));
         rooms.add(new Room(102, "Double", 150.0));
         rooms.add(new Room(103, "Suite", 300.0));
@@ -86,28 +102,37 @@ public class HotelReservationSystem {
         rooms.add(new Room(105, "Double", 150.0));
     }
 
-    public void searchRooms(String category) {
+    public void searchRooms(String category)
+    {
         System.out.println("Available rooms in category: " + category);
         boolean found = false;
         for (Room room : rooms) {
-            if (room.getCategory().equalsIgnoreCase(category) && room.isAvailable()) {
+            if (room.getCategory().equalsIgnoreCase(category) && room.isAvailable())
+            {
                 System.out.println(room);
                 found = true;
             }
         }
-        if (!found) {
+        if (!found) 
+        {
             System.out.println("No rooms available in this category.");
         }
     }
 
-    public void makeReservation(String guestName, int roomNumber) {
-        for (Room room : rooms) {
-            if (room.getRoomNumber() == roomNumber) {
-                if (room.isAvailable()) {
+    public void makeReservation(String guestName, int roomNumber)
+    {
+        for (Room room : rooms) 
+        {
+            if (room.getRoomNumber() == roomNumber) 
+            {
+                if (room.isAvailable())
+                {
                     Reservation reservation = new Reservation(guestName, room);
                     reservations.add(reservation);
                     System.out.println("Reservation successful!\n" + reservation);
-                } else {
+                }
+                else
+                {
                     System.out.println("Room is not available.");
                 }
                 return;
@@ -116,18 +141,24 @@ public class HotelReservationSystem {
         System.out.println("Room not found.");
     }
 
-    public void viewReservations() {
-        if (reservations.isEmpty()) {
+    public void viewReservations() 
+    {
+        if (reservations.isEmpty()) 
+        {
             System.out.println("No reservations found.");
-        } else {
-            for (Reservation reservation : reservations) {
+        } 
+        else 
+        {
+            for (Reservation reservation : reservations)
+                {
                 System.out.println(reservation);
                 System.out.println("-------------------");
             }
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
         Scanner scanner = new Scanner(System.in);
         HotelReservationSystem system = new HotelReservationSystem();
 
@@ -139,9 +170,10 @@ public class HotelReservationSystem {
             System.out.println("4. Exit");
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine(); 
 
-            switch (choice) {
+            switch (choice) 
+            {
                 case 1:
                     System.out.print("Enter room category (Single/Double/Suite): ");
                     String category = scanner.nextLine();
